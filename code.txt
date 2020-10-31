@@ -1,0 +1,38 @@
+var movingrect,fixedrect;
+function setup() {
+  createCanvas(1200,800);
+  fixedrect = createSprite(800, 400, 50, 50);
+fixedrect.shapeColor = "green";
+fixedrect.debug = true;
+movingrect = createSprite(100, 400, 50, 50);
+movingrect.shapeColor = "green";
+movingrect.debug = true;
+fixedrect.velocityX = -2;
+movingrect.velocityX = 2;
+}
+
+function draw() {
+  background(255,255,255);  
+  //movingrect.x = World.mouseX;
+  //movingrect.y = World.mouseY;
+
+
+
+  if(Math.abs(fixedrect.x-movingrect.x)<=((movingrect.width/2) +(fixedrect.width/2))
+  && Math.abs(fixedrect.y-movingrect.y)<=((movingrect.height/2) +(fixedrect.height/2)))
+  {
+    fixedrect.shapeColor = "red";
+    movingrect.shapeColor = "red";
+    fixedrect.velocityX = 2;
+    movingrect.velocityX = -2;
+
+  }
+  /*
+  else
+  {
+    fixedrect.shapeColor = "green";
+    movingrect.shapeColor = "green";
+
+  }*/
+  drawSprites();
+}
